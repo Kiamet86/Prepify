@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prepify.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <!-- App Colors -->
+            <Color x:Key="HeaderColor">#3c15a7</Color>
+            <Color x:Key="NavigationBarColor">#3c15a7</Color>
+            
+            <!-- Font Sizes -->
+            <Font x:Key="LargeFonts">28.00</Font>
+            <Font x:Key="MediumFonts">20.00</Font>
+            <Font x:Key="SmallFonts">16.00</Font>
+
+            <!-- Implicit Styles -->
+            <Style TargetType="Button">
+                <Setter Property="FontSize"
+                        Value="{x:DynamicResource buttonFontSize}"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="{x:DynamicResource labelFontSize}"/>
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="FontSize"
+                        Value="{x:DynamicResource entryFontSize}"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

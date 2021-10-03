@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Prepify="clr-namespace:Prepify"
+             x:Class="Prepify.CreateNewMealPage">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Frame BackgroundColor="#3c15a7" Padding="10" CornerRadius="0">
+                <StackLayout>
+                    <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
+                        <Button Text="TheMealDB"
+                                x:Name="TheMealDBButton"
+                                Clicked="TheMealDBButton_Clicked"/>
+
+                        <Label Text="Create New Meal" 
+                               TextColor="White"
+                               FontSize="40"/>
+
+                        <Button Text="Settings"
+                                x:Name="SettingsButton"
+                                Clicked="SettingsButton_Clicked"/>
+
+                    </FlexLayout>
+                    <Label Text="Fill in the details below to create a new meal." 
+                        HorizontalTextAlignment="Center"
+                        TextColor="#f6b8b8"
+                        FontSize="16"/>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Padding="30" Spacing="10">
+                <Frame CornerRadius="0">
+                    <Entry Placeholder="Meal Name"
+                           x:Name="mealNameEntry"/>
+                </Frame>
+
+                <Frame Padding="20">
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label Text="Number of Serves"/>
+                        <Slider Minimum ="0" Maximum="8" Value="4"
+                                HorizontalOptions="FillAndExpand"
+                                ThumbColor="#3c15a7"
+                                MaximumTrackColor="Black"
+                                MinimumTrackColor="Gray"
+                                x:Name="ServeSlider"
+                                ValueChanged="ServeSlider_ValueChanged"/>
+                        <Label Text="{Binding Path=Value}"
+                               x:Name="numberOfServesLabel"
+                               FontAttributes="Bold"
+                               BindingContext="{x:Reference Name=ServeSlider}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+
+                    <FlexLayout Direction="Row" JustifyContent="SpaceAround">
+                        <StackLayout>
+                            <Label Text="Difficulty"/>
+
+                            <StackLayout RadioButtonGroup.GroupName="Difficulty"
+                                     x:Name="difficultyRadioButtonGroup"
+                                      Spacing="20">
+                                <RadioButton Content="Easy" Value="1"/>
+                                <RadioButton Content="Normal" Value="2"/>
+                                <RadioButton Content="Hard" Value="3"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Label Text="Health Rating"/>
+                            <StackLayout RadioButtonGroup.GroupName="HealthRating"
+                                     x:Name="healthRatingRadioButtonGroup"
+                                     Spacing="20">
+                                <RadioButton Content="Low" Value="1"/>
+                                <RadioButton Content="Average" Value="2"/>
+                                <RadioButton Content="High" Value="3"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Label Text="Cost"/>
+                            <StackLayout RadioButtonGroup.GroupName="Cost"
+                                     x:Name="costRadioButtonGroup"
+                                     Spacing="20">
+                                <RadioButton Content="$" Value="1"/>
+                                <RadioButton Content="$$" Value="2"/>
+                                <RadioButton Content="$$$" Value="3"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </FlexLayout>
+                </Frame>
+
+                <Button Text="Save Meal"
+                        x:Name="SaveMealButton"
+                        Clicked="SaveMealButton_Clicked"
+                        BackgroundColor="#3c15a7" 
+                        TextColor="White" 
+                        Padding="10"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:Prepify="clr-namespace:Prepify"
+             x:Class="Prepify.ViewMealPlanPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#3c15a7" Padding="10" CornerRadius="0">
+                <StackLayout>
+   
+                        <Label Text="This Week's Meal Plan" 
+                        TextColor="White" 
+                        HorizontalTextAlignment="Center"/>
+
+                    <Label Text="Tap any meal to mark it as eaten." 
+                        HorizontalTextAlignment="Center"
+                        FontSize="16"
+                        TextColor="#f6b8b8"/>
+
+                </StackLayout>
+            </Frame>
+
+            <ListView x:Name="ViewMealPlanListView"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  CachingStrategy="RecycleElement">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell x:Name="ViewMealPlanViewCell"
+                                  Tapped="ViewMealPlanViewCell_Tapped">
+                            <Grid Padding="10">
+                                <Frame HasShadow="True"
+                                       CornerRadius="10">
+                                    <StackLayout>
+                                        <Label Text="{Binding meal_name}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

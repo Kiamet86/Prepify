@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Prepify="clr-namespace:Prepify"
+             x:Class="Prepify.TheMealDBPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#3c15a7" Padding="10" CornerRadius="0">
+                <StackLayout>
+                    <Label Text="The Meal Database" 
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"/>
+                    <Label Text="Find new meal ideas on The Meal Database." 
+                            HorizontalTextAlignment="Center"
+                            TextColor="#f6b8b8" FontSize="Small"/>
+                </StackLayout>
+            </Frame>
+
+            <Button Text="Suggest a Meal"
+                    x:Name="RandomMealButton"
+                    Clicked="RandomMealButton_Clicked"/>
+
+            <Label x:Name="RandomMealLabel"
+                   HorizontalOptions="Center"
+                   FontSize="30"/>
+
+            <Button Text="Add This Meal"
+                    x:Name="AddMealButton"
+                    Clicked="AddMealButton_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Prepify="clr-namespace:Prepify"
+             x:Class="Prepify.CreateMealPlanPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#3c15a7" Padding="10" CornerRadius="0">
+            <StackLayout>
+                <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
+                    <Button Text="View Plan"
+                            x:Name="ViewPlanButton"
+                            Clicked="ViewPlanButton_Clicked"/>
+
+                    <Label Text="Prepify"  
+                           TextColor="White"
+                           FontSize="40"/>
+
+                    <Button Text="Settings"
+                            x:Name="SettingsButton" 
+                            HorizontalOptions="End"
+                            Clicked="SettingsButton_Clicked"/>
+                </FlexLayout>
+                
+                <Label Text="Select your favourite meals for the week ahead." 
+                       HorizontalTextAlignment="Center"
+                       TextColor="#f6b8b8"
+                       FontSize="16"/>
+            </StackLayout>
+        </Frame>
+        
+        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" Padding="10">
+            <Picker Title="Sort By"
+                    x:Name="SortByPicker"
+                    SelectedIndexChanged="SortByPicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Difficulty (Low -> High)</x:String>
+                        <x:String>Health Rating (High -> Low)</x:String>
+                        <x:String>Cost (Low -> High)</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            
+            <Button Text="+"
+                x:Name="CreateNewMealButton"
+                FlexLayout.AlignSelf="End"
+                Clicked="CreateNewMealButton_Clicked"/>
+        </FlexLayout>
+                
+
+        <ListView x:Name="mealsListView"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  CachingStrategy="RecycleElement"
+                  ItemSelected="mealsListView_ItemSelected"
+                  ItemTapped="mealsListView_ItemTapped">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell x:Name="MealViewCell">
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete"
+                                      x:Name="DeleteMealMenuItem"
+                                      Clicked="DeleteMealMenuItem_Clicked"/>
+                        </ViewCell.ContextActions>
+                        <Grid Padding="10">
+                            <Frame HasShadow="True"
+                                   CornerRadius="10">
+                                <StackLayout BackgroundColor="{Binding bg_colour}">
+                                    <Label Text="{Binding meal_name}"/>
+                                    <Label Text="{Binding last_eaten}"
+                                           FontSize="15"/>
+                                    <Label Text="{Binding times_eaten}"
+                                           FontSize="15"/>
+                                </StackLayout>
+                            </Frame>
+                            
+                        </Grid>
+                    </ViewCell> 
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+         
+
+    </StackLayout>
+    
+
+</ContentPage>
